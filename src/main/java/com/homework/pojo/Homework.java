@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Homework {
-    private int homeworkID;
+    private Integer homeworkID;
     private String description;
+    private Integer courseID;
 }
