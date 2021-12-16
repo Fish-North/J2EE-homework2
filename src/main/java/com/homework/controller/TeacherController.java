@@ -1,19 +1,20 @@
 package com.homework.controller;
 
+
+import com.homework.service.TeacherService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * @Author 24962
- * @create 2021/12/16 12:39
- */
+import javax.annotation.Resource;
+
+@Controller
 @RequestMapping("/teacher")
 public class TeacherController {
-    @GetMapping("/assignHomework")
-    public String assignHomework(Model model){
-
-        return null;
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("code",0);
+        return " ";
     }
 }

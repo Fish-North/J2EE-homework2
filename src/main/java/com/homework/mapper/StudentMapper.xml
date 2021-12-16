@@ -3,17 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homework.mapper.StudentMapper">
-    <insert id="submitHomework" parameterType="homework">
-        insert into s_homework value (#{studentID},#{homework.homeworkID},1,#{fileUrl});
+    <!--    提交作业 todo：fileurl为服务器上作业保存路径-->
+    <insert id="submitHomework">
+        insert into s_homework value (#{StudentID}, #{homeworkID}, 1,file_url);
     </insert>
-    <select id="myHomework" parameterType="Integer">
+    <!--    查询教师课程下的作业-->
+    <select id="myHomework" parameterType="Integer" resultSets="homework">
         select * from homework where course_id=
-                                     (select * from s_course where student_id=#{studentID})
+                                     (select * from t_course where teacher_id=#{teacherID})
     </select>
-    <select id="myCourse" parameterType="Integer">
-        select * from s_course where student_id=#{studentID}
-    </select>
-    <update id="modifyPassword">
-        update student set student_password=#{newPassword} where student_id=#{studentID}
+    <!--    修改密码-->
+    <update id="modifyPassword" parameterType="Integer">
+        update teacher set teacher_password=#{newPassword} where teacher_id=#{teacherID}
     </update>
+    <!--    检查作业 todo：逻辑应该为查询教师的课程->查询课程对应的作业->根据id查询s_homework表返回记录-->
+    <select id="checkHomework" parameterType="homework">
+        select * from s_homework where homework_id=#{homework.homeworkID}
+    </select>
 </mapper>
