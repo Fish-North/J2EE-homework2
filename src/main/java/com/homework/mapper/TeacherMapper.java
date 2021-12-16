@@ -14,7 +14,7 @@ public interface TeacherMapper {
      List<Homework> myHomework(@Param("teacherID")Integer teacherID);
 
      //修改教师的密码
-     void modifyPassword(@Param("newPassword") String newPassword);
+     void modifyPassword(@Param("newPassword")String newPassword,@Param("teacherID")Integer teacherID);
 
      //检查布置的某次作业的完成情况
      void checkHomework(@Param("homeworkID") Integer homeworkID);
