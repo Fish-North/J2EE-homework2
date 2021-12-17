@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+/*
+* 文件工具类，用于上传文件
+* */
 public class FileUtil {
     public static String upload(MultipartFile mFile, HttpServletRequest request){
         SimpleDateFormat yformat = new SimpleDateFormat("yyyy");

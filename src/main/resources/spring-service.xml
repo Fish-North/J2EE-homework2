@@ -9,7 +9,12 @@
     <bean id="teacherServiceImpl" class="com.homework.service.impl.TeacherServiceImpl">
         <property name="teacherMapper" ref="teacherMapper"/>
     </bean>
-
+    <bean id="studentServiceImpl" class="com.homework.service.impl.StudentServiceImpl">
+        <property name="studentMapper" ref="studentMapper"/>
+    </bean>
+    <bean id="adminServiceImpl" class="com.homework.service.impl.AdminServiceImpl">
+        <property name="adminMapper" ref="adminMapper"/>
+    </bean>
     <!--配置事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!--注入数据源-->

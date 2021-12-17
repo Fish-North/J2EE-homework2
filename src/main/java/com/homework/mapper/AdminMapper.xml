@@ -12,7 +12,22 @@
     <delete id="deleteTeacher" parameterType="Integer">
         delete from teacher where teacher_id=#{teacherID}
     </delete>
-    <delete id="deleteStduent" parameterType="Integer">
+    <delete id="deleteStudent" parameterType="Integer">
         delete from student where student_id#{studentID}
     </delete>
+    <insert id="addCourse" parameterType="Curriculum">
+        insert into curriculum value (#{course.courseID},#{course.courseName},#{course.courseTime})
+    </insert>
+    <insert id="addStudentToCourse">
+        insert into s_course(course_id, student_id) value (#{courseID},#{studentID})
+    </insert>
+    <select id="allCourse" resultType="Curriculum">
+        select * from curriculum
+    </select>
+    <select id="queryTeacherByCourseID" parameterType="Integer" resultType="Teacher">
+        select * from t_course where course_id=#{courseID}
+    </select>
+    <select id="queryStudentByCourseID" parameterType="Integer"resultType="Student">
+        select * from s_course where course_id=#{courseID}
+    </select>
 </mapper>

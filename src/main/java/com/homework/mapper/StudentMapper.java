@@ -17,7 +17,8 @@ public interface StudentMapper {
     void withdrawHomework(@Param("homeworkID")Integer homeworkID, @Param("studentID")Integer studentID);
     //查看自己有哪些作业
     List<Homework> myHomework(@Param("studentID")Integer studentID);
-    //
-    List<Curriculum> myCourse(@Param("courseID")Integer courseID);
+    //查看自己的课程表
+    List<Curriculum> myCourse(@Param("studentID")Integer studentID);
+    //修改自己的密码
     void modifyPassword(@Param("newPassword")String newPassword,@Param("studentID")Integer studentID);
 }
