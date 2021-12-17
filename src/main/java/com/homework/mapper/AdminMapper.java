@@ -4,10 +4,11 @@ import com.homework.pojo.Curriculum;
 import com.homework.pojo.Student;
 import com.homework.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public interface AdminMapper {
     /*
      *教师注册
