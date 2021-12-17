@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homework.mapper.AdminMapper">
-    <insert id="registerTeacher" parameterType="teacher">
+    <insert id="registerTeacher" parameterType="Teacher">
         insert into teacher value (#{teacher.teacherID},#{teacher.teacherName},#{teacher.teacherPassword})
     </insert>
-    <insert id="registerStudent" parameterType="student">
+    <insert id="registerStudent" parameterType="Student">
         insert into student value (#{student.studentID},#{stduent.studentName},#{student.studentPassword})
     </insert>
     <delete id="deleteTeacher" parameterType="Integer">

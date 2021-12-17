@@ -27,12 +27,12 @@ public interface StudentMapper {
     List<Homework> myHomework(@Param("studentID") Integer studentID);
 
     /*
-    *查看自己有哪些课程
+     *查看自己有哪些课程
      */
-    List<Curriculum> myCourse(@Param("courseID") Integer studentID);
+    List<Curriculum> myCourse(@Param("studentID") Integer studentID);
 
     /*
-    *修改密码
+     *修改密码
      */
     void modifyPassword(@Param("newPassword") String newPassword, @Param("studentID") Integer studentID);
 }

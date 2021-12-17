@@ -10,39 +10,47 @@ import java.util.List;
 
 public interface AdminMapper {
     /*
-    *教师注册
+     *教师注册
      */
-    void registerTeacher(@Param("teacher")Teacher teacher);
+    void registerTeacher(@Param("teacher") Teacher teacher);
+
     /*
-    *学生注册
+     *学生注册
      */
-    void registerStudent(@Param("student")Student student);
+    void registerStudent(@Param("student") Student student);
+
     /*
-    *根据教师id删除教师
+     *根据教师id删除教师
      */
-    void deleteTeacher(@Param("teacherID")Integer teacherID);
+    void deleteTeacher(@Param("teacherID") Integer teacherID);
+
     /*
-    *根据学生id删除学生
+     *根据学生id删除学生
      */
-    void deleteStudent(@Param("studentID")Integer student);
+    void deleteStudent(@Param("studentID") Integer student);
+
     /*
-    *添加课程
+     *添加课程
      */
-    void addCourse(@Param("course")Curriculum course);
+    void addCourse(@Param("course") Curriculum course);
+
     /*
-    *添加学生到课程
+     *添加学生到课程
      */
-    void addStudentToClass(@Param("studentID")Integer studentId,@Param("courseID")Integer courseID);
+    void addStudentToClass(@Param("studentID") Integer studentId, @Param("courseID") Integer courseID);
+
     /*
-    *查看所有课程
+     *查看所有课程
      */
-    List <Curriculum> allCourse();
+    List<Curriculum> allCourse();
+
     /*
-    *查看课程下的教师
+     *查看课程下的教师
      */
     Teacher queryWhoTeachCourse();
+
     /*
-    *查看课程下的学生
+     *查看课程下的学生
      */
     List<Student> queryWhoStudyCourse();
 }

@@ -5,19 +5,30 @@
 <mapper namespace="com.homework.mapper.StudentMapper">
     <!--    提交作业 todo：fileurl为服务器上作业保存路径-->
     <insert id="submitHomework">
-        insert into s_homework value (#{StudentID}, #{homeworkID}, 1,file_url);
+        insert into s_homework value (#{StudentID}, #{homeworkID}, 1, file_url);
     </insert>
-    <!--    查询教师课程下的作业-->
-    <select id="myHomework" parameterType="Integer" resultSets="homework">
-        select * from homework where course_id=
-                                     (select * from t_course where teacher_id=#{teacherID})
+    <!--    撤销作业 -->
+    <update id="withdrawHomework">
+        update s_homework
+        set file_url=NULL
+        where student_id = #{studentID} AND homework_id=#{homeworkID}
+    </update>
+    <!--    查看自己作业-->
+    <select id="myHomework" parameterType="Integer" resultType="Homework">
+        select *
+        from s_homework
+        where student_id = #{studentID}
+    </select>
+    <!--    查看自己课程-->
+    <select id="myCourse" parameterType="Integer" resultType="Curriculum">
+        select *
+        from s_course
+        where student_id = #{studentID}
     </select>
     <!--    修改密码-->
     <update id="modifyPassword" parameterType="Integer">
-        update teacher set teacher_password=#{newPassword} where teacher_id=#{teacherID}
+        update student
+        set student_password=#{newPassword}
+        where student_id = #{studentID}
     </update>
-    <!--    检查作业 todo：逻辑应该为查询教师的课程->查询课程对应的作业->根据id查询s_homework表返回记录-->
-    <select id="checkHomework" parameterType="homework">
-        select * from s_homework where homework_id=#{homework.homeworkID}
-    </select>
 </mapper>

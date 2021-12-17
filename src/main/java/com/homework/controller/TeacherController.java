@@ -12,6 +12,8 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/teacher")
 public class TeacherController {
+
+
     @GetMapping("/login")
     public String login(Model model){
         model.addAttribute("code",0);

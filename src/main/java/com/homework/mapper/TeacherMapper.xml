@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homework.mapper.TeacherMapper">
+<!--    布置作业  todo：-->
     <insert id="assignHomework">
         insert into homework value (#{homework.homeworkID}, #{homework.description}, #{homework.courseID});
         insert into s_homework value ()
