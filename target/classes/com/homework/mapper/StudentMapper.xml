@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homework.mapper.StudentMapper">
+    <insert id="submitHomework" parameterType="homework">
+        insert into s_homework value (#{studentID},#{homework.homeworkID},1,#{fileUrl});
+    </insert>
+    <select id="myHomework" parameterType="Integer">
+        select * from homework where course_id=
+                                     (select * from s_course where student_id=#{studentID})
+    </select>
+    <select id="myCourse" parameterType="Integer">
+        select * from s_course where student_id=#{studentID}
+    </select>
+    <update id="modifyPassword">
+        update student set student_password=#{newPassword} where student_id=#{studentID}
+    </update>
+</mapper>
