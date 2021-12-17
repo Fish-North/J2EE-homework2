@@ -7,17 +7,7 @@
     <typeAliases>
         <package name="com.homework.pojo"/>
     </typeAliases>
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"></transactionManager>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/J2EE_Work"/>
-                <property name="username" value="root"/>
-                <property name="password" value="root"/>
-            </dataSource>
-        </environment>
-    </environments>
+    <!--mapper映射-->
     <mappers>
         <mapper resource="com/homework/mapper/TeacherMapper.xml"></mapper>
     </mappers>

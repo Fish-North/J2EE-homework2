@@ -2,7 +2,6 @@ package com.homework.mapper;
 
 import com.homework.pojo.Curriculum;
 import com.homework.pojo.Homework;
-import com.homework.pojo.Student;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -10,10 +10,16 @@
         select * from homework where course_id=
                                      (select * from t_course where teacher_id=#{teacherID})
     </select>
-    <update id="modifyPassword" parameterType="Integer">
-        update teacher set teacher_password=#{newPassword}
+    <update id="modifyPassword">
+        update teacher set teacher_password=#{newPassword} where teacher_id=#{teacherID}
     </update>
     <select id="checkHomework" parameterType="homework">
         select * from s_homework where homework_id=#{homework.homeworkID}
+    </select>
+    <select id="myCourse" parameterType="Integer" resultType="Curriculum">
+        select * from t_course where teacher_id=#{teacherID}
+    </select>
+    <select id="myInfo" parameterType="Integer" resultType="teacher">
+        select * from teacher where teacher_id=#{teacherID}
     </select>
 </mapper>
