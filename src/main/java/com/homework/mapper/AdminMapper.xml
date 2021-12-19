@@ -4,30 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homework.mapper.AdminMapper">
     <insert id="registerTeacher" parameterType="teacher">
-        insert into teacher value (#{teacher.teacherID},#{teacher.teacherName},#{teacher.teacherPassword})
+        insert into teacher value (${teacher.teacherID},${teacher.teacherName},${teacher.teacherPassword})
     </insert>
     <insert id="registerStudent" parameterType="student">
-        insert into student value (#{student.studentID},#{stduent.studentName},#{student.studentPassword})
+        insert into student value (${student.studentID},${stduent.studentName},${student.studentPassword})
     </insert>
     <delete id="deleteTeacher" parameterType="Integer">
-        delete from teacher where teacher_id=#{teacherID}
+        delete from teacher where teacher_id=${teacherID}
     </delete>
     <delete id="deleteStudent" parameterType="Integer">
-        delete from student where student_id#{studentID}
+        delete from student where student_id${studentID}
     </delete>
     <insert id="addCourse" parameterType="Curriculum">
-        insert into curriculum value (#{course.courseID},#{course.courseName},#{course.courseTime})
+        insert into curriculum value (${course.courseID},${course.courseName},${course.courseTime})
     </insert>
     <insert id="addStudentToCourse">
-        insert into s_course(course_id, student_id) value (#{courseID},#{studentID})
+        insert into s_course(course_id, student_id) value (${courseID},${studentID})
     </insert>
     <select id="allCourse" resultType="Curriculum">
-        select * from curriculum
+        select course_id as courseID,course_name as courseName,course_time as courseTime from curriculum
     </select>
     <select id="queryTeacherByCourseID" parameterType="Integer" resultType="Teacher">
-        select * from t_course where course_id=#{courseID}
+        select teacher_id as teacherID,teacher_name as teacherName,teacher_password as teacherPassword from teacher where teacher_id=
+                                                                                                                          (select teacher_id from t_course where course_id=${courseID})
     </select>
     <select id="queryStudentByCourseID" parameterType="Integer" resultType="Student">
-        select * from s_course where course_id=#{courseID}
+        select student_id as studentID,student_name as studentName,student_password as studentPassword from student where student_id=
+                                                                                                                          (select student_id from s_course where course_id=${courseID})
     </select>
 </mapper>

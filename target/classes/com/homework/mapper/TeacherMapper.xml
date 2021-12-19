@@ -4,22 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.homework.mapper.TeacherMapper">
     <insert id="assignHomework">
-        insert into homework value (#{homework.homeworkID}, #{homework.description}, #{homework.courseID})
+        insert into homework value (${homework.homeworkID}, ${homework.description}, ${homework.courseID})
     </insert>
     <select id="myHomework" parameterType="Integer" resultSets="homework">
-        select * from homework where course_id=
-                                     (select * from t_course where teacher_id=#{teacherID})
+        select homework_id as homeworkID,homework_description as homeworkDescription,course_id as courseID from homework where course_id=
+                                     (select course_id from t_course where teacher_id=${teacherID})
     </select>
     <update id="modifyPassword">
-        update teacher set teacher_password=#{newPassword} where teacher_id=#{teacherID}
+        update teacher set teacher_password=${newPassword} where teacher_id=${teacherID}
     </update>
-    <select id="checkHomework" parameterType="homework">
-        select * from s_homework where homework_id=#{homework.homeworkID}
+    <select id="checkHomework" parameterType="Homework">
+        select * from s_homework where homework_id=${homework.homeworkID}
     </select>
     <select id="myCourse" parameterType="Integer" resultType="Curriculum">
-        select * from t_course where teacher_id=#{teacherID}
+        select course_id as courseID, course_name as courseName, course_time as courseTime from curriculum where course_id=
+                                                                                                                 (select course_id from t_course where teacher_id=${teacherID})
     </select>
     <select id="myInfo" parameterType="Integer" resultType="teacher">
-        select * from teacher where teacher_id=#{teacherID}
+        select teacher_id as teacherID,teacher_name as teacherName,teacher_password as teacherPassword from teacher where teacher_id=${teacherID}
     </select>
 </mapper>

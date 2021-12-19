@@ -1,5 +1,7 @@
 package com.homework.mapper;
 
+import com.homework.pojo.Student;
+import com.homework.utils.SqlSessionFactoryUtil;
 import org.junit.Test;
 
 /**
@@ -9,6 +11,7 @@ import org.junit.Test;
 public class TeacherMapperTest {
     @Test
     public void assignHomeworkTest(){
-
+        StudentMapper sm = SqlSessionFactoryUtil.getSqlSession().getMapper(StudentMapper.class);
+        System.out.println(sm.myInfo(456));
     }
 }

@@ -25,7 +25,6 @@ import java.util.List;
  * @create 2021/12/17 15:50
  */
 @Controller
-@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
@@ -44,7 +43,7 @@ public class StudentController {
     @Qualifier("homeworkServiceImpl")
     private HomeworkService homeworkService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/studentLog")
     public String login(HttpServletRequest request, @RequestParam("studentID")Integer studentID,@RequestParam("password")String password,Model model){
         if(studentService.login(studentID,password)){
             HttpSession session = request.getSession();

@@ -219,17 +219,17 @@
         }
         if (this.loginWay === "student") {
             //学生登录 todo：
-            $.ajax({
-                url: "${pageContext.request.contextPath}/student/studentLog",
-                type:"post",
-                data:JSON.stringify({
-                    "studentID":account,
-                    "password":password
-                }),
-                success:function (res){
-                    console.log(res);
-                }
-            });
+           $.ajax({
+              url: "${pageContext.request.contextPath}/studentLog",
+               type:"post",
+               data:JSON.stringify({
+                   "account":account,
+                   "password":password
+               }),
+               success:function (res){
+                  console.log(res);
+               }
+           });
         }
         if (this.loginWay === "teacher") {
             //教师登录 todo：
