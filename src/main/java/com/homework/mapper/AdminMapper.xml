@@ -27,7 +27,7 @@
     <select id="queryTeacherByCourseID" parameterType="Integer" resultType="Teacher">
         select * from t_course where course_id=#{courseID}
     </select>
-    <select id="queryStudentByCourseID" parameterType="Integer"resultType="Student">
+    <select id="queryStudentByCourseID" parameterType="Integer" resultType="Student">
         select * from s_course where course_id=#{courseID}
     </select>
 </mapper>

@@ -19,7 +19,7 @@ public interface TeacherMapper {
      void modifyPassword(@Param("newPassword")String newPassword,@Param("teacherID")Integer teacherID);
 
      //检查布置的某次作业的完成情况
-     void checkHomework(@Param("homeworkID")Integer homeworkID);
+     List<Object[]> checkHomework(@Param("homeworkID")Integer homeworkID);
 
      //查看自己名下的所有课程
      List<Curriculum> myCourse(@Param("teacherID")Integer teacherID);

@@ -9,6 +9,9 @@
     </typeAliases>
     <!--mapper映射-->
     <mappers>
-        <mapper resource="com/homework/mapper/TeacherMapper.xml"></mapper>
+        <mapper resource="com/homework/mapper/TeacherMapper.xml"/>
+        <mapper resource="com/homework/mapper/HomeworkMapper.xml"/>
+        <mapper resource="com/homework/mapper/StudentMapper.xml"/>
+        <mapper resource="com/homework/mapper/AdminMapper.xml"/>
     </mappers>
 </configuration>

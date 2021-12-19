@@ -16,4 +16,10 @@
     <update id="modifyPassword">
         update student set student_password=#{newPassword} where student_id=#{studentID}
     </update>
+    <select id="myInfo" parameterType="Integer" resultType="Student">
+        select * from student where student_id=#{studentID}
+    </select>
+    <select id="queryHomeworkByID">
+        select * from s_homework where homework_id=#{homeworkID} and student_id=#{studentID}
+    </select>
 </mapper>

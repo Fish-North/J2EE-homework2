@@ -4,6 +4,7 @@ import com.homework.pojo.Curriculum;
 import com.homework.pojo.Student;
 import com.homework.pojo.Teacher;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Author 24962
  * @create 2021/12/17 15:37
  */
+@Service
 public interface AdminService {
     /*
      *教师注册

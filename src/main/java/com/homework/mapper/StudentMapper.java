@@ -3,6 +3,7 @@ package com.homework.mapper;
 import com.homework.pojo.Curriculum;
 import com.homework.pojo.Homework;
 import org.apache.ibatis.annotations.Param;
+import com.homework.pojo.Student;
 
 import java.util.List;
 
@@ -21,4 +22,8 @@ public interface StudentMapper {
     List<Curriculum> myCourse(@Param("studentID")Integer studentID);
     //修改自己的密码
     void modifyPassword(@Param("newPassword")String newPassword,@Param("studentID")Integer studentID);
+    //查看个人信息
+    Student myInfo(@Param("studentID")Integer studentID);
+    //查看自己的某一次作业
+    List<Object> queryHomeworkByID(@Param("studentID")Integer studentID,@Param("homeworkID")Integer homeworkID);
 }

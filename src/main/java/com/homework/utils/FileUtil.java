@@ -64,10 +64,8 @@ public class FileUtil {
     }
 
     //删除
-    public static void deleteFile(HttpServletRequest request,String filename){
-        String f = request.getSession().getServletContext().getRealPath(
-                "/")+filename;
-        File file = new File(f);
+    public static void deleteFile(HttpServletRequest request,String fileUrl){
+        File file = new File(fileUrl);
         file.delete();
     }
 

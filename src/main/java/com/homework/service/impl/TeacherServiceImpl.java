@@ -49,11 +49,17 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public void checkHomework(Integer homeworkID) {
-        teacherMapper.checkHomework(homeworkID);
+    public List<Object[]> checkHomework(Integer homeworkID) {
+        return teacherMapper.checkHomework(homeworkID);
+    }
+
+    @Override
+    public Teacher myInfo(Integer teacherID){
+        return teacherMapper.myInfo(teacherID);
     }
 
     public void setTeacherMapper(TeacherMapper teacherMapper) {
         this.teacherMapper = teacherMapper;
     }
+
 }
